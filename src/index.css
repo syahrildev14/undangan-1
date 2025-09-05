@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Parisienne&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
+
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #660B05;
+  --color-primary: #FF7D29;
   --color-secondary: #0000;
   --color-accent: #FFF0C4;
+}
+
+.mempelai {
+  font-family: 'Parisienne', cursive;
 }

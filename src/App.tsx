@@ -1,11 +1,21 @@
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 // pages
+import BukaUndangan from "./pages/BukaUndangan";
 import Home from "./pages/Home";
 
 const App = () => {
   return (
     <>
-    <Home />
+      <BrowserRouter>
+        <Routes>
+          {/* Halaman Buka Undangan */}
+          <Route path="/" element={<BukaUndangan />} />
+
+          {/* Halaman Utama */}
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
