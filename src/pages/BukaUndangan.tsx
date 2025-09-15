@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // Komponen
-import bg from "../assets/images/bg.png";
+import bgHome from "../assets/images/bg.png";
 import gunungan from "../assets/images/gunung.png";
 import head from "../assets/images/head.png";
 import foot from "../assets/images/foot.png";
@@ -30,7 +30,7 @@ const BukaUndangan = () => {
       <div
         className="w-full max-w-lg mx-auto p-6 min-h-screen flex flex-col items-center justify-around text-center"
         style={{
-          backgroundImage: `url(${bg})`,
+          backgroundImage: `url(${bgHome})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
