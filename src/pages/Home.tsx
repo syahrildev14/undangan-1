@@ -192,76 +192,148 @@ const Home = () => {
         {/* Mempelai */}
         <section className="relative text-white bg-gradient-to-b from-black via-teal-950 to-black min-h-screen w-full flex flex-col items-center px-8 md:px-16 pt-24 pb-24">
           {/* Border Atas Kiri */}
-          <img
+          <motion.img
             src={border3}
             alt="border atas kiri"
-            className="absolute left-0 top-0 rotate-90 object-contain pointer-events-none w-[12rem]"
+            className="absolute left-0 top-0 object-contain pointer-events-none w-[12rem] scale-y-[-1]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 200, opacity: 0 }}
+            viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
+
           {/* Border Atas Kanan */}
-          <img
+          <motion.img
             src={border3}
             alt="border atas kanan"
             className="absolute right-0 top-0 rotate-180 object-contain pointer-events-none w-[12rem]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 200, opacity: 0 }}
+            viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
+
           {/* Border Bawah Kiri */}
-          <img
+          <motion.img
             src={border3}
             alt="border bawah kiri"
             className="absolute left-0 bottom-0 object-contain pointer-events-none w-[12rem]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 200, opacity: 0 }}
+            viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
+
           {/* Border Bawah Kanan */}
-          <img
+          <motion.img
             src={border3}
             alt="border bawah kanan"
-            className="absolute right-0 bottom-0 -rotate-90 object-contain pointer-events-none w-[12rem]"
+            className="absolute right-0 bottom-0 object-contain pointer-events-none w-[12rem] scale-x-[-1]"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 200, opacity: 0 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
           />
 
           {/* Judul */}
-          <div className="relative z-10 text-center space-y-2 mb-12">
-            <img
+          <motion.div
+            className="relative z-10 text-center space-y-2 mb-12"
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
+            <motion.img
               src={headTitle}
               alt="headTitle"
               className="w-[12rem] mx-auto"
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
             />
-            <h2 className="text-lg font-semibold text-primary">Mempelai</h2>
-          </div>
+            <motion.h2
+              className="text-lg font-semibold text-primary"
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            >
+              Mempelai
+            </motion.h2>
+          </motion.div>
 
           {/* Foto mempelai */}
           <div className="flex flex-col items-center space-y-16 relative z-10">
             {/* Mempelai Pria */}
             <div className="flex flex-col items-center space-y-4">
-              <div className="w-[16rem] h-[24rem] border-3 border-primary rounded-full overflow-hidden shadow-lg">
-                <img
+              <motion.div
+                className="w-[16rem] h-[24rem] border-3 border-primary rounded-full overflow-hidden shadow-lg"
+                initial={{ scale: 0, opacity: 0 }} // mulai dari kecil & transparan
+                whileInView={{ scale: 1, opacity: 1 }} // zoom in ke ukuran normal
+                viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+                transition={{ duration: 2, ease: "easeOut" }}
+              >
+                <motion.img
                   src={pria}
                   alt="mempelai pria"
                   className="w-full h-full object-cover"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                 />
-              </div>
-              <div className="text-center text-white max-w-xs">
+              </motion.div>
+              <motion.div
+                className="text-center text-white max-w-xs"
+                initial={{ x: 200, opacity: 0 }} // mulai dari kanan & transparan
+                whileInView={{ x: 0, opacity: 1 }} // geser ke posisi normal
+                viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                transition={{ duration: 2, ease: "easeOut" }}
+              >
                 <p className="font-bold text-lg">Krisna Mahardika, S.Pd</p>
                 <p className="text-sm">
                   Putra dari Bpk Damiran Edy Saputro & Ibu Supik
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Mempelai Wanita */}
             <div className="flex flex-col items-center space-y-4">
-              <div className="w-[16rem] h-[24rem] border-3 border-primary rounded-full overflow-hidden shadow-lg">
-                <img
+              <motion.div
+                className="w-[16rem] h-[24rem] border-3 border-primary rounded-full overflow-hidden shadow-lg"
+                initial={{ scale: 0, opacity: 0 }} // mulai dari kecil & transparan
+                whileInView={{ scale: 1, opacity: 1 }} // zoom in ke ukuran normal
+                viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+                transition={{ duration: 2, ease: "easeOut" }}
+              >
+                <motion.img
                   src={wanita}
-                  alt="mempelai wanita"
+                  alt="mempelai pria"
                   className="w-full h-full object-cover"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                 />
-              </div>
-              <div className="text-center text-white max-w-xs">
+              </motion.div>
+              <motion.div
+                className="text-center text-white max-w-xs"
+                initial={{ x: -200, opacity: 0 }} // mulai dari kiri & transparan
+                whileInView={{ x: 0, opacity: 1 }} // geser ke posisi normal
+                viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                transition={{ duration: 2, ease: "easeOut" }}
+              >
                 <p className="font-bold text-lg">
                   Virnalisha Dwi Septarini, S.Pd
                 </p>
                 <p className="text-sm">
                   Putri dari Alm. Bpk Ponijan & Ibu Sumik Widayati
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -271,7 +343,13 @@ const Home = () => {
           {/* Kontainer Jadwal */}
           <div className="space-y-8 items-center justify-center gap-12 w-full max-w-4xl px-6">
             {/* Akad */}
-            <div className="bg-teal-950 h-[20rem] border-4 border-primary rounded-t-full p-8 w-full md:w-1/2 shadow-lg flex flex-col items-center justify-center text-center space-y-6">
+            <motion.div
+              className="bg-teal-950 h-[20rem] border-4 border-primary rounded-t-full p-8 w-full md:w-1/2 shadow-lg flex flex-col items-center justify-center text-center space-y-6"
+              initial={{ scale: 0, opacity: 0 }} // mulai dari kecil & transparan
+              whileInView={{ scale: 1, opacity: 1 }} // zoom in ke ukuran normal
+              viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
               <h3 className="akad text-5xl font-bold text-primary">
                 Akad Nikah
               </h3>
@@ -284,14 +362,24 @@ const Home = () => {
               </div>
 
               <p className="text-sm">Masjid Agung Al-Mubarok, Jombang</p>
-            </div>
-
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }} // mulai dari kecil & transparan
+              whileInView={{ scale: 1, opacity: 1 }} // zoom in ke ukuran normal
+              viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
               <Countdown targetDate="2025-10-25T10:00:00" />
-            </div>
-
+            </motion.div>
             {/* Resepsi */}
-            <div className="bg-teal-950 h-[20rem] border-4 border-primary rounded-b-full p-8 w-full md:w-1/2 shadow-lg flex flex-col items-center justify-center text-center space-y-8">
+
+            <motion.div
+              className="bg-teal-950 h-[20rem] border-4 border-primary rounded-b-full p-8 w-full md:w-1/2 shadow-lg flex flex-col items-center justify-center text-center space-y-8"
+              initial={{ scale: 0, opacity: 0 }} // mulai dari kecil & transparan
+              whileInView={{ scale: 1, opacity: 1 }} // zoom in ke ukuran normal
+              viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
               <h3 className="resepsionis text-5xl font-bold text-primary">
                 Resepsi
               </h3>
@@ -309,7 +397,7 @@ const Home = () => {
                 </p>
                 <p className="mt-2 text-sm">Rumah Mempelai Pria</p>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div>
             <img
@@ -328,50 +416,124 @@ const Home = () => {
         {/* Galeri */}
         <section className="py-16 text-primary w-full">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-5xl akad md:text-3xl font-bold text-center mb-10">
+            <motion.h2
+              className="text-5xl akad md:text-3xl font-bold text-center mb-10"
+              initial={{ x: 200, opacity: 0 }} // mulai dari kanan
+              whileInView={{ x: 0, opacity: 1 }} // masuk ke posisi normal
+              viewport={{ once: false, amount: 0.5 }} // bisa diulang saat scroll
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
               Our Gallery
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-2 mt-20">
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri1}
                   alt="Foto 1"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri2}
                   alt="Foto 2"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri1}
                   alt="Foto 1"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri2}
                   alt="Foto 2"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri1}
                   alt="Foto 1"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
               <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
-                <img
+                <motion.img
                   src={galeri2}
                   alt="Foto 2"
                   className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+              </div>
+              <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
+                <motion.img
+                  src={galeri1}
+                  alt="Foto 1"
+                  className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+              </div>
+              <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
+                <motion.img
+                  src={galeri2}
+                  alt="Foto 2"
+                  className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+              </div>
+              <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
+                <motion.img
+                  src={galeri1}
+                  alt="Foto 1"
+                  className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+              </div>
+              <div className="overflow-hidden  shadow-md hover:scale-105 transition-transform duration-300">
+                <motion.img
+                  src={galeri2}
+                  alt="Foto 2"
+                  className="w-full h-50 object-cover"
+                  initial={{ scale: 0, opacity: 0 }} // mulai kecil & transparan
+                  whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                  viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
             </div>
@@ -381,33 +543,63 @@ const Home = () => {
         {/* Rekening */}
         <section className="py-16 text-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="space-y-3 mb-10">
+            <motion.div
+              className="space-y-3 mb-10"
+              initial={{ x: -200, opacity: 0 }} // mulai dari kiri & transparan
+              whileInView={{ x: 0, opacity: 1 }} // geser ke posisi normal
+              viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat discroll
+              transition={{ duration: 2, ease: "easeOut" }}
+            >
               <h2 className="text-2xl md:text-3xl font-semibold text-primary">
                 Rekening
               </h2>
-              <p className="text-sm  text-gray-300">
+              <p className="text-sm text-gray-300">
                 Terima kasih atas doa dan restunya ❤️
               </p>
-            </div>
+            </motion.div>
 
             <div className="space-y-6">
               {/* Rekening 1 */}
-              <div className="border-3 w-[22rem] h-[12rem] border-primary rounded-3xl p-6 shadow-md bg-teal-900/50 hover:scale-105 transition-transform duration-300">
+              <motion.div
+                className="border-3 w-[22rem] h-[12rem] border-primary rounded-3xl p-6 shadow-md bg-teal-900/50 hover:scale-105 transition-transform duration-300"
+                initial={{ scale: 0, opacity: 0 }} // mulai agak kecil
+                whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{
+                  duration: 2,
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 80, // semakin kecil semakin smooth
+                  damping: 12,
+                }}
+              >
                 <h3 className="text-2xl font-semibold">BSI</h3>
                 <p className="mt-2 text-xl font-bold tracking-wider">
                   7266029041
                 </p>
                 <p className="text-sm mt-1">a.n. Krisna Mahardika</p>
-              </div>
+              </motion.div>
 
               {/* Rekening 2 */}
-              <div className="border-3 w-[22rem] h-[12rem] border-primary rounded-3xl p-6 shadow-md bg-teal-900/50 hover:scale-105 transition-transform duration-300">
+              <motion.div
+                className="border-3 w-[22rem] h-[12rem] border-primary rounded-3xl p-6 shadow-md bg-teal-900/50 hover:scale-105 transition-transform duration-300"
+                initial={{ scale: 0, opacity: 0 }} // mulai agak kecil & transparan
+                whileInView={{ scale: 1, opacity: 1 }} // zoom in saat terlihat
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{
+                  duration: 2, // animasi 2 detik
+                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 12,
+                }}
+              >
                 <h3 className="text-2xl font-semibold">BRI</h3>
                 <p className="mt-2 text-xl font-bold tracking-wider">
-                  3649 0104 2132 531
+                  3649 0104 2132 531
                 </p>
                 <p className="text-sm mt-1">a.n. Virnalisha Dwi Septarini</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -415,7 +607,13 @@ const Home = () => {
         {/* Penutup */}
         <section className="relative text-white py-24 px-8 bg-gradient-to-b from-black via-teal-950 to-black w-full flex flex-col items-center text-center">
           {/* Judul Penutup */}
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-4"
+            initial={{ x: -200, opacity: 0 }} // mulai dari kiri & transparan
+            whileInView={{ x: 0, opacity: 1 }} // bergerak ke posisi normal
+            viewport={{ once: false, amount: 0.5 }} // animasi bisa diulang saat scroll
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
             <img
               src={headTitle}
               alt="headPenutup"
@@ -424,22 +622,28 @@ const Home = () => {
             <h2 className="text-3xl akad md:text-4xl font-bold text-primary mb-8">
               Terima Kasih
             </h2>
-          </div>
+          </motion.div>
 
           {/* Ucapan Penutup */}
-          <p className="max-w-2xl text-base md:text-lg leading-relaxed mb-8">
-            Dengan penuh rasa syukur, kami mengucapkan terima kasih atas doa,
-            kehadiran, dan dukungan Anda semua. Semoga Allah SWT selalu
-            memberkahi keluarga kita dan memberikan kebahagiaan untuk kita
-            semua.
-          </p>
+          <motion.div
+            initial={{ x: 200, opacity: 0 }} // mulai dari kanan & transparan
+            whileInView={{ x: 0, opacity: 1 }} // geser ke posisi normal
+            viewport={{ once: false, amount: 0.5 }} // bisa diulang saat discroll
+            transition={{ duration: 2, ease: "easeOut" }}
+          >
+            <p className="max-w-2xl text-base md:text-lg leading-relaxed mb-8">
+              Dengan penuh rasa syukur, kami mengucapkan terima kasih atas doa,
+              kehadiran, dan dukungan Anda semua. Semoga Allah SWT selalu
+              memberkahi keluarga kita dan memberikan kebahagiaan untuk kita
+              semua.
+            </p>
 
-          {/* Doa atau Quote */}
-          <p className="max-w-2xl italic text-sm md:text-base leading-relaxed">
-            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
-            pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
-            dan merasa tenteram kepadanya..."
-          </p>
+            <p className="max-w-2xl italic text-sm md:text-base leading-relaxed">
+              "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
+              pasangan-pasangan untukmu dari jenismu sendiri, agar kamu
+              cenderung dan merasa tenteram kepadanya..."
+            </p>
+          </motion.div>
         </section>
       </div>
     </div>
